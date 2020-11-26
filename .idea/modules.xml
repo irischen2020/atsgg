@@ -2,7 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
-      <module fileurl="file://$PROJECT_DIR$/admin-parent/admin-component.iml" filepath="$PROJECT_DIR$/admin-parent/admin-component.iml" />
+      <module fileurl="file://$PROJECT_DIR$/admin-parent/admin-component/admin-component.iml" filepath="$PROJECT_DIR$/admin-parent/admin-component/admin-component.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-parent/admin-component/admin-component (1).iml" filepath="$PROJECT_DIR$/admin-parent/admin-component/admin-component (1).iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-parent/admin-entity/admin-entity.iml" filepath="$PROJECT_DIR$/admin-parent/admin-entity/admin-entity.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-parent/admin-parent.iml" filepath="$PROJECT_DIR$/admin-parent/admin-parent.iml" />

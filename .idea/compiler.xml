@@ -6,9 +6,9 @@
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
+        <module name="admin-component" />
         <module name="admin-component (1)" />
         <module name="admin-entity" />
-        <module name="admin-parent" />
         <module name="admin-webui" />
         <module name="common-reverse" />
         <module name="common-util" />
