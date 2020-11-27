@@ -1,0 +1,7 @@
+1、SpringMVC和Spring整合的目的：分工明确；
+SpringMVC的配置文件就来配置和网站转发逻辑以及网站功能有关的（视图解析器，文件上传解析器，支持ajax等等）
+Spring的配置文件来配置和业务有关的（事务控制，数据源，）
+
+2、SpringMVC和Spring分容器：
+Spring管理业务逻辑组件；除了controller不要。包扫描时
+SpringMVC管理控制器组件；controller。包扫描时
