@@ -4,9 +4,10 @@
        xmlns:context="http://www.springframework.org/schema/context"
        xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
        xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
        xsi:schemaLocation="http://www.springframework.org/schema/beans
        http://www.springframework.org/schema/beans/spring-beans.xsd
-       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
 
     <!--包扫描：SPRING扫描除了controller以外的所有组件都要扫描-->
     <context:component-scan base-package="com.atsgg">
@@ -29,25 +30,31 @@
     <!-- 2、整合Mybatis. 重点
         可以根据配置文件得到sqlSessionFactory-->
     <!--配置SqlSessionFactoryBean-->
-    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
-        <property name="dataSource" ref="dataSource"/>
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
         <!--全局配置文件-->
-        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"></property>
         <!--映射配置文件-->
-        <property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml"/>
-        <property name="plugins">
-            <array>
-                <bean class="com.github.pagehelper.PageInterceptor">
-                    <property name="properties">
-                        <value>
-                            dialet = mysql
-                            reasonable = true
-                        </value>
-                    </property>
-                </bean>
-            </array>
-        </property>
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"></property>
+        <!--<property name="plugins">-->
+            <!--<array>-->
+                <!--<bean class="com.github.pagehelper.PageInterceptor">-->
+                    <!--<property name="properties">-->
+                        <!--<value>-->
+                            <!--dialet = mysql-->
+                            <!--reasonable = true-->
+                        <!--</value>-->
+                    <!--</property>-->
+                <!--</bean>-->
+            <!--</array>-->
+        <!--</property>-->
     </bean>
+    <!--配置MapperScannerConfigurer来扫描Mapper接口所在的包-->
+    <!--<bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">-->
+        <!--<property name="basePackage" value="com.atsgg.mapper"/>-->
+        <!--<mvc:resources mapping="" location=""></mvc:resources>-->
+    <!--</bean>-->
+    <mybatis-spring:scan base-package="com.atsgg.mapper"/>
 
 
     <!--&lt;!&ndash; 3、配置事务管理器，让他控制住数据源里面的连接的关闭和提交 &ndash;&gt;-->
@@ -98,9 +105,6 @@
     <!--&lt;!&ndash;6、把每一个dao接口的实现加入到ioc容器&ndash;&gt;-->
     <!--&lt;!&ndash;<mybatis-spring:scan base-package="com.atsgg.mapper"/>&ndash;&gt;-->
 
-    <!--配置MapperScannerConfigurer来扫描Mapper接口所在的包-->
-    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
-        <property name="basePackage" value="com.atsgg.mapper"/>
-    </bean>
+
 
 </beans>
