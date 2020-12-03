@@ -1,0 +1,16 @@
+0、在子工程中加入搭建环境所需要的具体依赖。
+子工程：选择component工程
+
+1、准备jdbc.properties
+2、创建spring配置文件，专门配置spring和mybatis整合相关
+3、在spring的配置文件中加载jdbc.properties属性
+4、配置数据源
+－－测试从数据源中获取数据库连接
+5、配置SqlsessionFactoryBean:
+        装配数据源
+        指定xxxMapper.xml配置文件的位置
+        指定Mybatis全局配置文件的位置（可选）
+6、配置MapperScannerConfigurer
+－－测试是否可以装配xxxMapper接口并通过这个接口操作数据库
+
+7、创建springmvc配置文件

@@ -1,0 +1,106 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mybatis-spring="http://mybatis.org/schema/mybatis-spring"
+       xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd
+       http://www.springframework.org/schema/context https://www.springframework.org/schema/context/spring-context.xsd http://mybatis.org/schema/mybatis-spring http://mybatis.org/schema/mybatis-spring.xsd http://www.springframework.org/schema/aop https://www.springframework.org/schema/aop/spring-aop.xsd http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <!--包扫描：SPRING扫描除了controller以外的所有组件都要扫描-->
+    <context:component-scan base-package="com.atsgg">
+        <!--扫描排除-->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+        <context:exclude-filter type="annotation" expression="org.springframework.web.bind.annotation.ControllerAdvice"/>
+
+    </context:component-scan>
+
+    <!--0、导入外部配置文件-->
+    <context:property-placeholder location="classpath:jdbc.properties"/>
+    <!-- 1、配置数据源，即数据库连接池 -->
+    <bean id="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="username" value="${jdbc.user}"></property>
+        <property name="password" value="${jdbc.password}"></property>
+        <property name="driverClassName" value="${jdbc.driverClass}"></property>
+        <property name="url" value="${jdbc.jdbcUrl}"></property>
+    </bean>
+
+    <!-- 2、整合Mybatis. 重点
+        可以根据配置文件得到sqlSessionFactory-->
+    <!--配置SqlSessionFactoryBean-->
+    <bean id="sqlSessionFactoryBean" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"/>
+        <!--全局配置文件-->
+        <property name="configLocation" value="classpath:mybatis/mybatis-config.xml"/>
+        <!--映射配置文件-->
+        <property name="mapperLocations" value="classpath:mybatis/mapper/*Mapper.xml"/>
+        <property name="plugins">
+            <array>
+                <bean class="com.github.pagehelper.PageInterceptor">
+                    <property name="properties">
+                        <value>
+                            dialet = mysql
+                            reasonable = true
+                        </value>
+                    </property>
+                </bean>
+            </array>
+        </property>
+    </bean>
+
+
+    <!--&lt;!&ndash; 3、配置事务管理器，让他控制住数据源里面的连接的关闭和提交 &ndash;&gt;-->
+    <!--<bean id="transactionManager"-->
+          <!--class="org.springframework.jdbc.datasource.DataSourceTransactionManager">-->
+        <!--<property name="dataSource" ref="dataSource"></property>-->
+    <!--</bean>-->
+
+    <!--&lt;!&ndash;4、配置事务的切入点-->
+           <!--基于XML配置，配置事务：哪些方法切入事务还要写切入点表达式&ndash;&gt;-->
+    <!--<aop:config>-->
+        <!--<aop:pointcut id="txPointcut" expression="execution(* com.atsgg.service.*.*(..))"/>-->
+        <!--&lt;!&ndash;将事务的通知和切入点表达式关联起来&ndash;&gt;-->
+        <!--<aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>-->
+    <!--</aop:config>-->
+
+    <!--&lt;!&ndash; 5、配置事务属性，即事务增强，事务建议-->
+            <!--transaction-manager="transactionManager" 指定要配置的事务管理器的ID&ndash;&gt;-->
+    <!--<tx:advice id="txAdvice" transaction-manager="transactionManager">-->
+        <!--<tx:attributes>-->
+            <!--&lt;!&ndash;查询方法 : 配置只读属性，让数据库知道这是查询操作，可以进行一定的优化&ndash;&gt;-->
+            <!--<tx:method name="get*" read-only="true"/>-->
+            <!--<tx:method name="find*" read-only="true"/>-->
+
+            <!--&lt;!&ndash;增删改方法：配置事务的传播行为，和回滚的异常&ndash;&gt;-->
+            <!--&lt;!&ndash;-->
+                <!--propagation事务传播行为，-->
+                    <!--默认值REQUIRED,表示此方法必须工作在事务中，如果当前线程没有事务，自己开启事务。如果已经有事务，那么就使用已有的事务-->
+                        <!--弊端：使用别人的事务，可能在不需要回滚的时候被回滚。-->
+                    <!--建议使用的值REQUIRES_NEW,表示此方法必须工作在事务中，如果当前线程没有事务，自己开启事务，如果已经有事务了，也自己开启新事务-->
+                        <!--优点：不会受到其他事务回滚的影响-->
+            <!--&ndash;&gt;-->
+            <!--&lt;!&ndash;-->
+                <!--rollback-for：配置根据什么样的异常会回滚-->
+                    <!--默认：runtimeException-->
+                    <!--建议：编译时异常和运行时异常都回滚-->
+            <!--&ndash;&gt;-->
+            <!--<tx:method name="insert*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>-->
+            <!--<tx:method name="update*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>-->
+            <!--<tx:method name="remove*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>-->
+            <!--<tx:method name="batch*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>-->
+            <!--<tx:method name="delete*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>-->
+        <!--</tx:attributes>-->
+    <!--</tx:advice>-->
+
+
+
+    <!--&lt;!&ndash;6、把每一个dao接口的实现加入到ioc容器&ndash;&gt;-->
+    <!--&lt;!&ndash;<mybatis-spring:scan base-package="com.atsgg.mapper"/>&ndash;&gt;-->
+
+    <!--配置MapperScannerConfigurer来扫描Mapper接口所在的包-->
+    <bean id="mapperScannerConfigurer" class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.atsgg.mapper"/>
+    </bean>
+
+</beans>

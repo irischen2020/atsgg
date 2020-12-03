@@ -6,6 +6,43 @@
         <element id="directory" name="classes">
           <element id="module-output" name="admin-webui" />
         </element>
+        <element id="directory" name="lib">
+          <element id="archive" name="admin-component-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="admin-component" />
+          </element>
+          <element id="archive" name="admin-entity-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="admin-entity" />
+          </element>
+          <element id="library" level="project" name="Maven: org.projectlombok:lombok:1.18.10" />
+          <element id="archive" name="admin-util-1.0-SNAPSHOT.jar">
+            <element id="module-output" name="admin-util" />
+          </element>
+          <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-context:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-expression:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-web:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.aspectj:aspectjweaver:1.9.5" />
+          <element id="library" level="project" name="Maven: cglib:cglib:3.3.0" />
+          <element id="library" level="project" name="Maven: org.ow2.asm:asm:7.1" />
+          <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.38" />
+          <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.21" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.3" />
+          <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.4" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.11" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:2.0" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.2" />
+          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.2" />
+          <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.10.RELEASE" />
+        </element>
       </element>
       <element id="directory" name="META-INF">
         <element id="file-copy" path="$PROJECT_DIR$/admin-parent/admin-webui/target/admin-webui-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
