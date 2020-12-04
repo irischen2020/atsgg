@@ -1,6 +1,6 @@
 <component name="ArtifactManager">
   <artifact type="exploded-war" name="admin-webui:war exploded">
-    <output-path>$PROJECT_DIR$/admin-parent/admin-webui/target/admin-webui-1.0-SNAPSHOT</output-path>
+    <output-path>$PROJECT_DIR$/admin-parent/admin-webui/target/webui</output-path>
     <root id="root">
       <element id="directory" name="WEB-INF">
         <element id="directory" name="classes">
@@ -19,6 +19,7 @@
           </element>
           <element id="library" level="project" name="Maven: org.springframework:spring-orm:5.0.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-beans:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-tx:5.0.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-webmvc:5.0.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-aop:5.0.10.RELEASE" />
@@ -32,20 +33,33 @@
           <element id="library" level="project" name="Maven: com.alibaba:druid:1.1.21" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis:3.5.3" />
           <element id="library" level="project" name="Maven: org.mybatis:mybatis-spring:2.0.4" />
-          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.11" />
-          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:2.0" />
+          <element id="library" level="project" name="Maven: org.slf4j:slf4j-api:1.7.30" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-classic:1.2.3" />
+          <element id="library" level="project" name="Maven: ch.qos.logback:logback-core:1.2.3" />
+          <element id="library" level="project" name="Maven: org.slf4j:jcl-over-slf4j:1.7.25" />
           <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-core:2.10.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-databind:2.10.2" />
-          <element id="library" level="project" name="Maven: com.fasterxml.jackson.core:jackson-annotations:2.10.2" />
           <element id="library" level="project" name="Maven: jstl:jstl:1.2" />
+          <element id="library" level="project" name="Maven: taglibs:standard:1.1.2" />
           <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.8.6" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-web:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-core:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-taglibs:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-acl:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: org.springframework.security:spring-security-config:5.0.10.RELEASE" />
+          <element id="library" level="project" name="Maven: junit:junit:4.13" />
+          <element id="library" level="project" name="Maven: org.hamcrest:hamcrest-core:1.3" />
+          <element id="library" level="project" name="Maven: org.springframework:spring-test:5.0.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-core:5.0.10.RELEASE" />
           <element id="library" level="project" name="Maven: org.springframework:spring-jcl:5.0.10.RELEASE" />
-          <element id="library" level="project" name="Maven: org.springframework:spring-jdbc:5.0.10.REALEASE" />
+          <element id="library" level="project" name="Maven: com.github.pagehelper:pagehelper:5.1.10" />
+          <element id="library" level="project" name="Maven: com.github.jsqlparser:jsqlparser:2.0" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+          <element id="library" level="project" name="Maven: commons-fileupload:commons-fileupload:1.3.1" />
+          <element id="library" level="project" name="Maven: commons-io:commons-io:2.4" />
         </element>
       </element>
       <element id="directory" name="META-INF">
-        <element id="file-copy" path="$PROJECT_DIR$/admin-parent/admin-webui/target/admin-webui-1.0-SNAPSHOT/META-INF/MANIFEST.MF" />
+        <element id="file-copy" path="$PROJECT_DIR$/admin-parent/admin-webui/target/webui/META-INF/MANIFEST.MF" />
       </element>
       <element id="javaee-facet-resources" facet="admin-webui/web/Web" />
     </root>

@@ -14,3 +14,52 @@
 －－测试是否可以装配xxxMapper接口并通过这个接口操作数据库
 
 7、创建springmvc配置文件
+
+
+8、声明式事务配置：
+    在框架环境下通过一系列的配置由spring来管理通用事务操作，然后让我们写的代码能够享受框架提供的服务。
+    思路：
+
+     <!-- 3、配置事务管理器，让他控制住数据源里面的连接的关闭和提交 -->
+        <bean id="transactionManager"
+              class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+            <property name="dataSource" ref="dataSource"></property>
+        </bean>
+
+        <!--4、配置事务的切入点
+               基于XML配置，配置事务：哪些方法切入事务还要写切入点表达式-->
+        <aop:config>
+            <aop:pointcut id="txPointcut" expression="execution(* com.atsgg.service.*.*(..))"/>
+            <!--将事务的通知和切入点表达式关联起来-->
+            <aop:advisor advice-ref="txAdvice" pointcut-ref="txPointcut"/>
+        </aop:config>
+
+        <!-- 5、配置事务属性，即事务增强，事务建议
+                transaction-manager="transactionManager" 指定要配置的事务管理器的ID-->
+        <tx:advice id="txAdvice" transaction-manager="transactionManager">
+            <tx:attributes>
+                <!--查询方法 : 配置只读属性，让数据库知道这是查询操作，可以进行一定的优化-->
+                <tx:method name="get*" read-only="true"/>
+                <tx:method name="find*" read-only="true"/>
+
+                <!--增删改方法：配置事务的传播行为，和回滚的异常-->
+                <!--
+                    propagation事务传播行为，
+                        默认值REQUIRED,表示此方法必须工作在事务中，如果当前线程没有事务，自己开启事务。如果已经有事务，那么就使用已有的事务
+                            弊端：使用别人的事务，可能在不需要回滚的时候被回滚。
+                        建议使用的值REQUIRES_NEW,表示此方法必须工作在事务中，如果当前线程没有事务，自己开启事务，如果已经有事务了，也自己开启新事务
+                            优点：不会受到其他事务回滚的影响
+                -->
+                <!--
+                    rollback-for：配置根据什么样的异常会回滚
+                        默认：runtimeException
+                        建议：编译时异常和运行时异常都回滚
+                -->
+                <tx:method name="insert*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>
+                <tx:method name="update*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>
+                <tx:method name="remove*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>
+                <tx:method name="batch*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>
+                <tx:method name="delete*" propagation="REQUIRES_NEW" rollback-for="java.lang.Exception"/>
+            </tx:attributes>
+        </tx:advice>
+

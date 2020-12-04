@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.atsgg.mapper.AdminMapper">
-  <resultMap id="BaseResultMap" type="Admin">
+  <resultMap id="BaseResultMap" type="com.atsgg.entity.Admin">
     <id column="id" jdbcType="INTEGER" property="id" />
     <result column="login_acct" jdbcType="VARCHAR" property="loginAcct" />
     <result column="user_pswd" jdbcType="CHAR" property="userPswd" />
@@ -70,7 +70,7 @@
   <sql id="Base_Column_List">
     id, login_acct, user_pswd, user_name, email, create_time
   </sql>
-  <select id="selectByExample" parameterType="AdminExample" resultMap="BaseResultMap">
+  <select id="selectByExample" parameterType="com.atsgg.entity.AdminExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
       distinct
@@ -94,13 +94,13 @@
     delete from t_admin
     where id = #{id,jdbcType=INTEGER}
   </delete>
-  <delete id="deleteByExample" parameterType="AdminExample">
+  <delete id="deleteByExample" parameterType="com.atsgg.entity.AdminExample">
     delete from t_admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
     </if>
   </delete>
-  <insert id="insert" parameterType="Admin">
+  <insert id="insert" parameterType="com.atsgg.entity.Admin">
     insert into t_admin (id, login_acct, user_pswd, 
       user_name, email, create_time
       )
@@ -108,7 +108,7 @@
       #{userName,jdbcType=VARCHAR}, #{email,jdbcType=VARCHAR}, #{createTime,jdbcType=CHAR}
       )
   </insert>
-  <insert id="insertSelective" parameterType="Admin">
+  <insert id="insertSelective" parameterType="com.atsgg.entity.Admin">
     insert into t_admin
     <trim prefix="(" suffix=")" suffixOverrides=",">
       <if test="id != null">
@@ -151,7 +151,7 @@
       </if>
     </trim>
   </insert>
-  <select id="countByExample" parameterType="AdminExample" resultType="java.lang.Long">
+  <select id="countByExample" parameterType="com.atsgg.entity.AdminExample" resultType="java.lang.Long">
     select count(*) from t_admin
     <if test="_parameter != null">
       <include refid="Example_Where_Clause" />
@@ -195,7 +195,7 @@
       <include refid="Update_By_Example_Where_Clause" />
     </if>
   </update>
-  <update id="updateByPrimaryKeySelective" parameterType="Admin">
+  <update id="updateByPrimaryKeySelective" parameterType="com.atsgg.entity.Admin">
     update t_admin
     <set>
       <if test="loginAcct != null">
@@ -216,7 +216,7 @@
     </set>
     where id = #{id,jdbcType=INTEGER}
   </update>
-  <update id="updateByPrimaryKey" parameterType="Admin">
+  <update id="updateByPrimaryKey" parameterType="com.atsgg.entity.Admin">
     update t_admin
     set login_acct = #{loginAcct,jdbcType=VARCHAR},
       user_pswd = #{userPswd,jdbcType=CHAR},

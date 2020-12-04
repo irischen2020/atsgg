@@ -4,7 +4,7 @@
         "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd">
 
 <generatorConfiguration>
-    <context id="crowdTables" targetRuntime="MyBatis3">
+    <context id="atsggTables" targetRuntime="MyBatis3">
         <!--自动去除注解-->
         <commentGenerator>
             <property name="suppressAllComments" value="true"/>

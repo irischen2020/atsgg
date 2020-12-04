@@ -29,6 +29,7 @@
             <!--指定SPRINGMVC配置文件的位置-->
             <param-value>classpath:spring/springmvc.xml</param-value>
         </init-param>
+        <!---->
         <load-on-startup>1</load-on-startup>
     </servlet>
     <servlet-mapping>
@@ -37,7 +38,7 @@
     </servlet-mapping>
 
     <!--两个标准配置:-->
-    <!--字符编码-->
+    <!--字符编码.这个FILTER执行的顺序要在所有FILTER前面-->
     <filter>
         <filter-name>CharacterEncodingFilter</filter-name>
         <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
