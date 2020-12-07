@@ -8,4 +8,7 @@ public interface AdminService {
 	void saveAdmin(Admin admin);
 	
 	List<Admin> getAll();
+	
+	
+	Admin getAdminByAcct(String loginAcct, String userPswd);
 }

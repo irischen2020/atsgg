@@ -32,9 +32,10 @@
     <!--扫动态资源-->
     <mvc:annotation-driven></mvc:annotation-driven>
 
-    <!--异常映射-->
+    <!--配置基于XML的异常映射-->
     <bean id="simpleMappingExceptionResolver"
           class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        <!--配置异常类型和具体视图页面的对应关系-->
         <property name="exceptionMappings">
             <props>
                 <prop key="java.lang.Exception">system-error</prop>
@@ -42,8 +43,9 @@
         </property>
     </bean>
 
-    <!--<mvc:view-controller path="/login.html" view-name="ad-login"/>-->
-    <!--<mvc:view-controller path="/admin/to/main" view-name="main"/>-->
+    <!--配置view-controller,直接把请求地址和视图名称关联起来，不必写handler方法.因为是直接跳转，不用带数据。HANDLER方法里面什么都不用写-->
+    <mvc:view-controller path="/admin/to/login.html" view-name="admin-login"/>
+    <!--<mvc:view-controller path="/admin/to/main" view-name="admin-main"/>-->
     <!--<mvc:view-controller path="/admin/to/logout" view-name="ad-login"/>-->
     <!--<mvc:view-controller path="/admin/to/add" view-name="add"/>-->
     <!--<mvc:view-controller path="/role/to/page" view-name="role-page"/>-->

@@ -12,18 +12,19 @@
     <base href="http://${pageContext.request.serverName}:${pageContext.request.serverPort}${pageContext.request.contextPath }/">
 
     <script type="text/javascript" src="jquery/jquery-2.1.1.min.js"></script>
+
+    <script type="text/javascript" src="layer/layer.js"></script>
     
     <script type="text/javascript">
 
-        //准备好要发送到服务端的数组
-        var array = [5,6,7];
-        //再将上面的JSON数组转换为JSON字符串
-        var requestBody = JSON.stringify(array);
-
-
-        
         $(function () {
             $("#btn1").click(function () {
+
+                //准备好要发送到服务端的数组
+                var array = [5,6,7];
+                //再将上面的JSON数组转换为JSON字符串
+                var requestBody = JSON.stringify(array);
+
                 $.ajax({
                     "url":"send/array.html",    //请求目标资源的地址
                     "type":"post",              //请求方式
@@ -81,6 +82,10 @@
 
             })
 
+            $("#btn5").click(function () {
+                layer.msg("layer的弹框")
+            });
+
 
 
         })
@@ -92,6 +97,8 @@
 <button id="btn1"> test request body</button>
 
 <button id="btn2">test request body2222</button>
+
+<button id="btn5">点我弹框</button>
 </body>
 
 
