@@ -60,7 +60,7 @@ public class AdminServiceImpl implements AdminService {
 			// 5、将表单提交的明文密码进行加密
 			String uPwd = CrowdUtil.md5(userPswd);
 			// 6、对密码进行比较
-			if(!Objects.equals(dbPwd,dbPwd)){
+			if(!Objects.equals(uPwd,dbPwd)){
 				// 7、如果比较结果不一致，则抛出异常
 				throw new LoginFailedException(CrowdConstant.MESSAGE_LOGIN_FAILED);
 			}

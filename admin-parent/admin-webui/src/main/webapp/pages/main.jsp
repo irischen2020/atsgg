@@ -1,11 +1,12 @@
 <%--
   Created by IntelliJ IDEA.
-  User: Administrator
-  Date: 2020/12/7
-  Time: 17:56
+  User: NGX
+  Date: 2020/5/2
+  Time: 10:46
   To change this template use File | Settings | File Templates.
 --%>
-<%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page contentType="text/html;charset=UTF-8" isELIgnored="false" %>
+<!DOCTYPE html>
 <html>
 <%--提取公共head--%>
 <%@include file="include-head.jsp" %>
@@ -48,3 +49,5 @@
 </div>
 </body>
 </html>
+
+

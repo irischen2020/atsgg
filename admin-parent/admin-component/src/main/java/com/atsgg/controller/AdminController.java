@@ -33,6 +33,13 @@ public class AdminController {
 		
 		session.setAttribute(CrowdConstant.ATTR_NAME_LOGIN_ADMIN,admin);
 		
-		return "admin-main";
+		return "redirect:/admin/to/main/page.html";
+	}
+	
+	
+	@RequestMapping("admin/do/logout.html")
+	public String doLogout(HttpSession session){
+		session.invalidate();
+		return "redirect:/admin/to/login/page.html";
 	}
 }

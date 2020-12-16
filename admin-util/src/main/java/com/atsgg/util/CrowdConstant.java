@@ -11,5 +11,5 @@ public class CrowdConstant {
 	
 	public static final String MESSAGE_STRING_INVALIDATE = "字符串不合法，请重新传入有效的字符串" ;
 	public static final String ATTR_NAME_LOGIN_ADMIN = "logAdmin" ;
-	public static final String MESSAGE_SYSTEM_ERROR_LOGIN_NOT_UNIQUE = "用记名有重复";
+	public static final String MESSAGE_SYSTEM_ERROR_LOGIN_NOT_UNIQUE = "用户名有重复";
 }
