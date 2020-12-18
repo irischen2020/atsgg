@@ -37,18 +37,30 @@
         <!--映射配置文件-->
         <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml"></property>
 
-        <!--配置分页插件-->
+        <!--&lt;!&ndash;配置分页插件&ndash;&gt;-->
+        <!--<property name="plugins">-->
+            <!--<array>-->
+                <!--<bean class="com.github.pagehelper.PageHelper">-->
+                    <!--<property name="properties">-->
+                        <!--<props>-->
+                            <!--&lt;!&ndash;配置数据库方言，告诉PageHelper当前使用的数据库&ndash;&gt;-->
+                            <!--<prop key="dialect">mysql</prop>-->
+
+                            <!--&lt;!&ndash;配置页码的合理化修正，在1－总页数之间修正页码&ndash;&gt;-->
+                            <!--<prop key="reasonable">true</prop>-->
+                        <!--</props>-->
+                    <!--</property>-->
+                <!--</bean>-->
+            <!--</array>-->
+        <!--</property>-->
         <property name="plugins">
             <array>
                 <bean class="com.github.pagehelper.PageInterceptor">
                     <property name="properties">
-                        <props>
-                            <!--配置数据库方言，告诉PageHelper当前使用的数据库-->
-                            <prop key="dialect">mysql</prop>
-
-                            <!--配置页码的合理化修正，在1－总页数之间修正页码-->
-                            <prop key="reasonable">true</prop>
-                        </props>
+                        <value>
+                            dialet = mysql
+                            reasonable = true
+                        </value>
                     </property>
                 </bean>
             </array>

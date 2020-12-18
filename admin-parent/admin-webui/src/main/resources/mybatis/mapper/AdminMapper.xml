@@ -73,7 +73,7 @@
   </sql>
 
   <select id="selectAdminByKeyword" resultMap="BaseResultMap">
-    select login_acct,user_name,user_pswd,email,creat_time
+    select login_acct,user_name,user_pswd,email,create_time
     from t_admin
     where login_acct like concat("%",#{keyword},"%")
     or user_name like concat("%",#{keyword},"%")
