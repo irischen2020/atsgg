@@ -9,6 +9,7 @@
     <result column="email" jdbcType="VARCHAR" property="email" />
     <result column="create_time" jdbcType="CHAR" property="createTime" />
   </resultMap>
+
   <sql id="Example_Where_Clause">
     <where>
       <foreach collection="oredCriteria" item="criteria" separator="or">
@@ -70,6 +71,16 @@
   <sql id="Base_Column_List">
     id, login_acct, user_pswd, user_name, email, create_time
   </sql>
+
+  <select id="selectAdminByKeyword" resultMap="BaseResultMap">
+    select login_acct,user_name,user_pswd,email,creat_time
+    from t_admin
+    where login_acct like concat("%",#{keyword},"%")
+    or user_name like concat("%",#{keyword},"%")
+    or email like concat("%",#{keyword},"%")
+  </select>
+
+
   <select id="selectByExample" parameterType="com.atsgg.entity.AdminExample" resultMap="BaseResultMap">
     select
     <if test="distinct">
