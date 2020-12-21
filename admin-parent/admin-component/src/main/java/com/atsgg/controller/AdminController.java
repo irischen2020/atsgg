@@ -49,7 +49,7 @@ public class AdminController {
 	}
 	
 	//用户维护页面：分页
-	@RequestMapping("/admin/get/page.html")
+	@RequestMapping("admin/get/page.html")
 	public String getPageInfo(@RequestParam(value="keyword",defaultValue = "") String keyword,
 							  @RequestParam(value="pageNum",defaultValue = "1") Integer pageNum,
 							  @RequestParam(value="pageSize",defaultValue = "5") Integer pageSize,
