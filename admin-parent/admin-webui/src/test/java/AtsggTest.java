@@ -76,4 +76,12 @@ public class AtsggTest {
 		
 		
 	}
+	
+	//造点用户数据
+	@Test
+	public void test(){
+		for(int i=0;i<238;i++){
+			adminMapper.insert(new Admin(null,"loginAcct"+i,"userPswd"+i,"userName"+i,"email"+i,null));
+		}
+	}
 }

@@ -4,6 +4,7 @@ import com.atsgg.entity.Admin;
 import com.atsgg.service.api.AdminService;
 import com.atsgg.util.CrowdConstant;
 import com.github.pagehelper.PageInfo;
+import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
@@ -15,6 +16,8 @@ import javax.servlet.http.HttpSession;
 
 @Controller
 public class AdminController {
+	
+	
 	
 	@Autowired
 	AdminService adminService;
@@ -50,13 +53,19 @@ public class AdminController {
 	public String getPageInfo(@RequestParam(value="keyword",defaultValue = "") String keyword,
 							  @RequestParam(value="pageNum",defaultValue = "1") Integer pageNum,
 							  @RequestParam(value="pageSize",defaultValue = "5") Integer pageSize,
-							  ModelMap modelMap){
-		
+							  ModelMap modelMap)
+	{
+
 		PageInfo<Admin> pageInfo = adminService.getPageInfo(keyword,pageNum,pageSize);
 		
+		System.out.println("===================================");
+		System.out.println(pageInfo);
+
 		modelMap.addAttribute("pageInfo",pageInfo);
-		
+
 		return "admin-page";
-		
+
 	}
+	
+
 }
