@@ -13,7 +13,7 @@
 <%@include file="include-head.jsp" %>
 
 <link rel="stylesheet" href="css/pagination.css"/>
-<script type="javascript" src="jquery/jquery.pagination.js"></script>
+<script type="text/javascript" src="jquery/jquery.pagination.js"></script>
 
 <script type="text/javascript">
     $(function(){
