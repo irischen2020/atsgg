@@ -16,10 +16,11 @@
 <script type="text/javascript" src="jquery/jquery.pagination.js"></script>
 
 <script type="text/javascript">
-    $(function(){
+    $(function () {
         //调用后面声明的函数对页码导航条进行初始化操作
         initPagination();
     });
+
     // 生成页码导航条的函数
     function initPagination() {
 
@@ -74,11 +75,13 @@
                     <h3 class="panel-title"><i class="glyphicon glyphicon-th"></i> 数据列表</h3>
                 </div>
                 <div class="panel-body">
-                    <form action="admin/get/page.html" method="post" class="form-inline" role="form" style="float:left;">
+                    <form action="admin/get/page.html" method="post" class="form-inline" role="form"
+                          style="float:left;">
                         <div class="form-group has-feedback">
                             <div class="input-group">
                                 <div class="input-group-addon">查询条件</div>
-                                <input name="keyword" class="form-control has-success" type="text" placeholder="请输入查询条件">
+                                <input name="keyword" class="form-control has-success" type="text"
+                                       placeholder="请输入查询条件">
                             </div>
                         </div>
                         <button type="submit" class="btn btn-warning"><i class="glyphicon glyphicon-search"></i> 查询
@@ -123,13 +126,16 @@
                                                     class=" glyphicon glyphicon-check"></i></button>
                                             <button type="button" class="btn btn-primary btn-xs"><i
                                                     class=" glyphicon glyphicon-pencil"></i></button>
-                                            <button type="button" class="btn btn-danger btn-xs"><i
-                                                    class=" glyphicon glyphicon-remove"></i></button>
+                                                <%--旧代码--%>
+                                                <%--<button type="button" class="btn btn-danger btn-xs"><i--%>
+                                                <%--class=" glyphicon glyphicon-remove"></i></button>--%>
+                                                <%--改成超链接--%>
+                                            <a href="admin/remove/${admin.id}/${requestScope.pageInfo.pageNum}/${param.keyword}.html"><i class=" glyphicon glyphicon-remove"></i></a>
+
                                         </td>
                                     </tr>
                                 </c:forEach>
                             </c:if>
-
 
 
                             </tbody>
@@ -137,16 +143,16 @@
                             <tr>
                                 <td colspan="6" align="center">
                                     <%--新的分页代码--%>
-                                        <div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
+                                    <div id="Pagination" class="pagination"><!-- 这里显示分页 --></div>
 
-                                  <%--<ul class="pagination">--%>
-                                        <%--<li class="disabled"><a href="#">上一页</a></li>--%>
-                                        <%--<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>--%>
-                                        <%--<li><a href="#">2</a></li>--%>
-                                        <%--<li><a href="#">3</a></li>--%>
-                                        <%--<li><a href="#">4</a></li>--%>
-                                        <%--<li><a href="#">5</a></li>--%>
-                                        <%--<li><a href="#">下一页</a></li>--%>
+                                    <%--<ul class="pagination">--%>
+                                    <%--<li class="disabled"><a href="#">上一页</a></li>--%>
+                                    <%--<li class="active"><a href="#">1 <span class="sr-only">(current)</span></a></li>--%>
+                                    <%--<li><a href="#">2</a></li>--%>
+                                    <%--<li><a href="#">3</a></li>--%>
+                                    <%--<li><a href="#">4</a></li>--%>
+                                    <%--<li><a href="#">5</a></li>--%>
+                                    <%--<li><a href="#">下一页</a></li>--%>
                                     <%--</ul>--%>
                                 </td>
                             </tr>

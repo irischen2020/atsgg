@@ -9,6 +9,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.stereotype.Service;
 import org.springframework.ui.ModelMap;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
@@ -65,6 +66,22 @@ public class AdminController {
 
 		return "admin-page";
 
+	}
+	
+	//删除用户
+	@RequestMapping("admin/remove/{adminId}/{pageNum}/{keyword}.html")
+	public String remove(@PathVariable("adminId") Integer adminId,
+						 @PathVariable("pageNum") Integer pageNum,
+						 @PathVariable("keyword") String keyword)
+ {
+		//执行删除
+		adminService.remove(adminId);
+		//页面跳转，回到分页页面,尝试方案1：直接转发到admin-page,jsp会无法显示分页数据
+//		return "admin-page";
+		//尝试方案2：转发到admin/get/page.html地址，一旦页面刷新会重复执行删除，浪费性能
+//		return "forward:admin/get/page.html";
+		//尝试方案3：重定向到/admin/get/page.html. 重定向，前面一定要加/
+		return "redirect:/admin/get/page.html?pageNum="+pageNum+"&keyword="+keyword;
 	}
 	
 
