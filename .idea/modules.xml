@@ -9,6 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/admin-util/admin-util.iml" filepath="$PROJECT_DIR$/admin-util/admin-util.iml" />
       <module fileurl="file://$PROJECT_DIR$/admin-parent/admin-webui/admin-webui.iml" filepath="$PROJECT_DIR$/admin-parent/admin-webui/admin-webui.iml" />
       <module fileurl="file://$PROJECT_DIR$/.idea/atsgg.iml" filepath="$PROJECT_DIR$/.idea/atsgg.iml" />
+      <module fileurl="file://$PROJECT_DIR$/demo/demo.iml" filepath="$PROJECT_DIR$/demo/demo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/pro11-springboot-maven-project/pro11-springboot-maven-project.iml" filepath="$PROJECT_DIR$/pro11-springboot-maven-project/pro11-springboot-maven-project.iml" />
     </modules>
   </component>
 </project>

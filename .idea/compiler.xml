@@ -12,6 +12,8 @@
         <module name="admin-reverse" />
         <module name="admin-util" />
         <module name="admin-webui" />
+        <module name="demo" />
+        <module name="pro11-springboot-maven-project" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
@@ -21,6 +23,8 @@
       <module name="admin-reverse" target="1.5" />
       <module name="admin-util" target="1.7" />
       <module name="admin-webui" target="1.8" />
+      <module name="demo" target="1.8" />
+      <module name="pro11-springboot-maven-project" target="1.8" />
     </bytecodeTargetLevel>
   </component>
 </project>

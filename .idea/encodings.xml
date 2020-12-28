@@ -5,5 +5,7 @@
     <file url="file://$PROJECT_DIR$/admin-parent/admin-component" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-parent/admin-entity" charset="UTF-8" />
     <file url="file://$PROJECT_DIR$/admin-parent/admin-webui" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/demo" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/pro11-springboot-maven-project" charset="UTF-8" />
   </component>
 </project>

@@ -9,6 +9,8 @@
         <option value="$PROJECT_DIR$/admin-parent/pom.xml" />
         <option value="$PROJECT_DIR$/admin-reverse/pom.xml" />
         <option value="$PROJECT_DIR$/admin-util/pom.xml" />
+        <option value="$PROJECT_DIR$/pro11-springboot-maven-project/pom.xml" />
+        <option value="$PROJECT_DIR$/demo/pom.xml" />
       </list>
     </option>
   </component>
